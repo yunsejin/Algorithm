@@ -1,14 +1,12 @@
 score = int(input())
 
-int(score)
-
 if 100 >= score >= 90:
-    print("A")
+    print('A')
 elif 90 > score >= 80:
-    print("B")
+    print('B')
 elif 80 > score >= 70:
-    print("C")
+    print('C')
 elif 70 > score >= 60:
-    print("D")
+    print('D')
 else:
-    print("F")
+    print('F')
