@@ -1,5 +1,5 @@
-def solve(a):
+def solve(n):
     ans = 0
-    for i in a:
+    for i in n:
         ans += i
     return ans
