@@ -1,9 +1,9 @@
-def factorial(n):
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
+num = int(input())
 
-N = int(input())
+def factorial(num):
+    if num <= 1:
+        return 1
+    
+    return num * factorial(num - 1)
 
-print(factorial(N))
+print(factorial(num))
