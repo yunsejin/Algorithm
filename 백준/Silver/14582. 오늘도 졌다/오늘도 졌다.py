@@ -1,16 +1,16 @@
-inning_w_ulrim = list(map(int, input().split()))
-inning_w_startlink = list(map(int, input().split()))
+b = list(map(int, input().split()))
+a = list(map(int, input().split()))
 
 
-score_ulrim = 0
-score_startlink = 0
+c = 0
+d = 0
 
 
 for i in range(9):
-    score_ulrim += inning_w_ulrim[i]
-    if score_ulrim > score_startlink:
+    c += b[i]
+    if c > d:
         print('Yes')
         break
-    score_startlink += inning_w_startlink[i]
+    d += a[i]
 else:
     print('No')
