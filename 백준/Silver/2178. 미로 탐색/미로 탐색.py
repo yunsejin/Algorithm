@@ -1,6 +1,4 @@
-import sys
 from collections import deque
-input=sys.stdin.readline
 n,m=map(int,input().split())
 g=[list(map(int,input().rstrip())) for _ in range(n)]
 dis=[(-1,0),(1,0),(0,-1),(0,1)]
