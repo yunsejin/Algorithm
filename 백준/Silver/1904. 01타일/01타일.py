@@ -1,6 +1,5 @@
-n = int(input())
-dp = [0,1,2]
-
-for i in range(3, n+1):
-    dp.append((dp[i-1] + dp[i-2])%15746)
-print(dp[n])
+n=int(input())%94488
+a,b=1,1
+for i in range(n-1):
+ a,b=b,(a+b)%15746
+print(b)
