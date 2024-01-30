@@ -1,0 +1,1 @@
+exec('n,*l=map(int,input().split());m=sum(l)/n;print("%.3f%%"%(sum(i>m for i in l)/n*100));'*int(input()))
