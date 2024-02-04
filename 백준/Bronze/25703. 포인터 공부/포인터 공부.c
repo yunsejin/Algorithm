@@ -13,6 +13,6 @@ int main(void) {
         for(int j = 1; j <= i; j++) {
             printf("*");
         }
-        printf("ptr%d = &ptr%d;\n", i, i - 1 ? i - 1 : 0);
+        printf("ptr%d = &ptr%d;\n", i, i - 1);
     }
 }
