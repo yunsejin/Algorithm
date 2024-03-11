@@ -1,35 +1,68 @@
-N,M,V = map(int,input().split())
+N, M, V = map(int, input().split())
 
 graph = [[] for _ in range(N+1)]
-for i in range (M):
-    a,b = map(int,input().split())
-    graph[a]+= [b]
-    graph[b]+= [a]
+for _ in range(M):
+    start, end = map(int, input().split())
+    graph[start].append(end)
+    graph[end].append(start)
 
-for i in range(N+1):
-    graph[i].sort()
 
-visited1 = [0]*(N+1)
-visited2 = visited1.copy()
+def BFS(graph, visited):
+    Q = []
+    temp = []
+    for element in graph[V]:
+        temp.append(element)
+    temp.sort()
 
-def dfs(V):
-    visited1[V] = 1
-    print(V, end=' ')
-    for i in graph[V]:
-        if visited1[i] == 0:
-            dfs(i)
+    for element in temp:
+        Q.append(element)
 
-def bfs(V):
-    queue = [V]
-    visited2[V] = 1
-    while queue:
-        V = queue.pop(0)
-        print(V, end = ' ')
-        for i in graph[V]:
-            if(visited2[i] == 0):
-                queue.append(i)
-                visited2[i] = 1
+    visited[V] = 1
+    print(V, end= " ")
+    
+    while Q:
+        ne = Q.pop(0)
 
-dfs(V)
+        if visited[ne] == 0:
+            visited[ne] = 1
+            print(ne, end = " ")
+
+            temp = []
+            for element in graph[ne]:
+                if visited[element] == 0:
+                    temp.append(element)
+            temp.sort()
+            for element in temp:
+                Q.append(element)
+
+def DFS(graph, visited):
+
+    stack = []
+    temp = []
+    for element in graph[V]:
+        temp.append(element)
+    temp.sort(reverse = True)
+    for element in temp:
+        stack.append(element)
+    visited[V] = 1
+    print(V, end=" ")
+
+    while stack:
+        ne = stack.pop()
+
+        if visited[ne] == 0:
+            visited[ne] = 1
+            print(ne, end = " ")
+            temp = []
+            for element in graph[ne]:
+                if visited[element] == 0:
+                    temp.append(element)
+            temp.sort(reverse= True)
+            for element in temp:
+                stack.append(element)
+
+visited = [0] * (N+1)
+DFS(graph, visited)
 print()
-bfs(V)
+visited = [0] * (N+1)
+BFS(graph,visited)
